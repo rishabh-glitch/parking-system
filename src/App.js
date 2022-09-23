@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter ,Route, Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
+import BookParkingSlotComponent from './components/BookParkingSlotComponent';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <div>
         <Switch>
         <Route exact path = "/" component = {HeaderComponent}></Route> 
-          {/* <Route path = "/signup" component = {Register}></Route> */}
+          <Route path = "/bookparkingslot" component = {BookParkingSlotComponent}></Route>
         </Switch>
       </div>
       </BrowserRouter>
