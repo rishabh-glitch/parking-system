@@ -20,6 +20,13 @@ const BookedParkingSlot = () => {
         })
     }
 
+    const deleteSlot = (parkingSlotId)=>{
+        ParkingSlotService.deleteParkingSlot(parkingSlotId).then((response)=>{
+            getAllParkingSlots();
+        }).catch(error=>{
+            console.log(error);
+        })
+    }
 
   return (
     <div style={{backgroundColor:"#d4d3eb",height:"650px"}}>
@@ -30,6 +37,7 @@ const BookedParkingSlot = () => {
         <h2 className='text-center' style={{fontFamily:"auto",textDecoration:"auto"}}>Booked Slots</h2>
         <table className = "table container table-bordered table-striped table-hover" style={{backgroundColor:"aliceblue",marginTop:"40px",borderRadius:"25px"}}>
             <thead style={{padding:"20px",textAlign:"center"}}>
+                <th style={{padding:"20px"}}> Slot ID</th>
                 <th style={{padding:"20px"}}> Booking Date </th>
                 <th style={{padding:"20px"}}> Floor Number </th>
                 <th style={{padding:"20px"}}> Slot Number </th>
@@ -44,6 +52,7 @@ const BookedParkingSlot = () => {
                     parkingslots.map(
                         parkingslot=>
                         <tr key = {parkingslot.id}>
+                            <td>{parkingslot.parkingSlotId}</td>
                             <td>{parkingslot.bookingDate}</td>
                             <td>{parkingslot.parkingFloor.floorNumber}</td>
                             <td>{parkingslot.slot_no}</td>
@@ -51,7 +60,7 @@ const BookedParkingSlot = () => {
                             <td>{parkingslot.parkingDate}</td>
                             <td>{parkingslot.parkingTime}</td>
                             <td>{parkingslot.vehicle.vehicleNumber}</td>
-                            {/* <td><button className='btn btn-danger' onClick={()=>deleteInsurance(insurance.id)}>Delete</button></td> */}
+                            <td><button className='btn btn-danger' onClick={()=>deleteSlot(parkingslot.parkingSlotId)}>Delete</button></td>
                             {/* <td><Link className='btn btn-info' to={`/edit-insurance/${insurance.id}`}>Update</Link></td> */}
                         </tr>
                     )
@@ -60,7 +69,7 @@ const BookedParkingSlot = () => {
         </table>
         <div>
 
-        <Link to="/bookparkingslot" className='btn btn-primary' style={{float:"right",marginRight:"50px",textDecoration:"none"}}> + ADD INSURANCE </Link>
+        <Link to="/bookparkingslot" className='btn btn-primary' style={{float:"right",marginRight:"50px",textDecoration:"none"}}> + BOOK SLOT </Link>
         </div>
         
     </div>
