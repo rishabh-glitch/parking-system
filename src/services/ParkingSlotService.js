@@ -5,10 +5,12 @@ class ParkingSlotService{
 
     getAllParkingSlots(){
         return axios.get(PARKING_SLOT_BASE_REST_API_URL + '/getAllSlots');
-
     }
-    saveParkingSlot(){
-        return axios.post(PARKING_SLOT_BASE_REST_API_URL + '/saveSlot');
+    saveParkingSlot(parkingslot){
+        return axios.post(PARKING_SLOT_BASE_REST_API_URL + '/saveSlot',parkingslot);
+    }
+    deleteParkingSlot(parkingSlotId){
+        return axios.delete(PARKING_SLOT_BASE_REST_API_URL+'/deleteSlot/'+parkingSlotId);
     }
 }
 export default new ParkingSlotService();
