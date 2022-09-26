@@ -1,175 +1,175 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, Link, useParams } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
 import HeaderComponent from './HeaderComponent'
 import ParkingSlotService from '../services/ParkingSlotService'
 
 const BookParkingSlotComponent = () => {
 
-    const [parkingFloor,setParkingFloor] = useState({parkingFloorId:""});
-    const [vehicle,setVehicle] = useState({vehicleId:""})
-    const [parkingDate,setParkingDate] = useState('')
-    const [parkingDuration,setParkingDuration] = useState('')
-    const [payment,setPayment] = useState({
-        type:"",
-        amountPaid:"",
-        status:""
+    const [parkingFloor, setParkingFloor] = useState({ parkingFloorId: '' });
+    const [vehicle, setVehicle] = useState({ vehicleId: '' })
+    const [parkingDate, setParkingDate] = useState('')
+    const [parkingDuration, setParkingDuration] = useState('')
+    const [payment, setPayment] = useState({
+        type: "",
+        amountPaid: '',
+        status: ""
     });
-    const [slot_no,setSlotNo] = useState('')
-    const [parkingTime,setParkingTime] = useState('')
+    const [slot_no, setSlotNo] = useState('')
+    const [parkingTime, setParkingTime] = useState('')
     const his = useHistory();
 
-    const saveSlot = (i)=>{
+    const saveSlot = (i) => {
         i.preventDefault();
-
-        const parkingslot = {parkingFloor,vehicle,parkingDate,parkingTime,slot_no,parkingDuration ,payment}
-        ParkingSlotService.saveParkingSlot(parkingslot).then((response)=>{
+        const parkingslot = { parkingFloor, vehicle, parkingDate, parkingTime, slot_no, parkingDuration, payment }
+        ParkingSlotService.saveParkingSlot(parkingslot).then((response) => {
             console.log(response.data)
             his.push('/bookedparkingslot');
             // saveButton();
-        }).catch(error=>{
+        }).catch(error => {
             console.log(error)
         })
     }
 
     // const saveButton = () = {}
 
-  return (<div>
-    <HeaderComponent/>
-    <div style={{background:"url(https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)center",
-  boxShadow : "0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)",opacity:"0.9"}}>
-            <div className='container' style={{width:"500px",color : "aliceblue",height:"890px"}}>
-              <h2 style={{    textAlign: 'center'}}>Enter Details</h2>
-                <div className='row' style={{color: "floralwhite",fontFamily:"monospace"}}>
+    return (<div>
+        <HeaderComponent />
+        <div style={{
+            background: "url(https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)center",
+            boxShadow: "0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)", opacity: "0.9"
+        }}>
+            <Link to="/bookedparkingslot" className='btn btn-outline-info' style={{ marginLeft: "40px", textDecoration: "none", position: 'absolute', marginTop: '100px' }}> View Parking Slots </Link>
+
+            <div className='container' style={{ width: "500px", color: "aliceblue", height: "890px" }}>
+
+                <h2 style={{ textAlign: 'center' }}>Enter Slot Details</h2>
+                <div className='row' style={{ color: "floralwhite", fontFamily: "monospace" }}>
                     {/* <div className='card col-md-6 offset-md-3 offset-md-3' style={{ marginTop: "10px", backgroundColor: "gray" }}>
                         {
                             title()
                         } */}
-                        <div className='card-body' style={{background:"black",padding:"23px",color:"white",borderRadius:"40px"}}>
-                            <form>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Parking Floor</label>
-                                    <input
-                                        type="number"
-                                        placeholder='Enter Parking Floor'
-                                        name='parkingFloorId'
-                                        className='form-control'
-                                        value={parkingFloor.parkingFloorId}
-                                        onChange={(i) => setParkingFloor({...parkingFloor,parkingFloorId: i.target.value})}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Vehicle</label>
-                                    <input
-                                        type="number"
-                                        placeholder='Enter Vehicle Number'
-                                        name='vehicleId'
-                                        className='form-control'
-                                        value={vehicle.vehicleId}
-                                        onChange={(i) => setVehicle({...vehicle,vehicleId:i.target.value})}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Parking Date</label>
-                                    <input
-                                        type="date"
-                                        placeholder='Enter Parking Date'
-                                        name='parkingDate'
-                                        className='form-control'
-                                        value={parkingDate}
-                                        onChange={(i) => setParkingDate(i.target.value)}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Parking Duration</label>
-                                    <input
-                                        type="number"
-                                        placeholder='Enter Parking Duration'
-                                        name='parkingDuration'
-                                        className='form-control'
-                                        value={parkingDuration}
-                                        onChange={(i) => setParkingDuration(i.target.value)}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Parking Time</label>
-                                    <input
-                                        type="text"
-                                        placeholder='Enter Parking Time'
-                                        name='parkingTime'
-                                        className='form-control'
-                                        value={parkingTime}
-                                        onChange={(i) => setParkingTime(i.target.value)}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Parking Slot No</label>
-                                    <input
-                                        type="number"
-                                        placeholder='Enter Parking Slot No'
-                                        name='slot_no'
-                                        className='form-control'
-                                        value={slot_no}
-                                        onChange={(i) => setSlotNo(i.target.value)}
-                                    >
-                                    </input>
-                                </div>
-                                <h3>ENTER PAYMENT DETAILS</h3>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Payment Type</label>
-                                    <input
-                                        type="text"
-                                        placeholder='Enter Payment Type'
-                                        name='type'
-                                        className='form-control'
-                                        value={payment.type}
-                                        onChange={(i) => setPayment({...payment,type: i.target.value})}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Amount Paid</label>
-                                    <input
-                                        type="text"
-                                        placeholder='Enter Amount Paid'
-                                        name='amountPaid'
-                                        className='form-control'
-                                        value={payment.amountPaid}
-                                        onChange={(i) => setPayment({...payment,amountPaid: i.target.value})}
-                                    >
-                                    </input>
-                                </div>
-                                <div className='form-group mb-2'>
-                                    <label className='form-label'>Status</label>
-                                    <input
-                                        type="text"
-                                        placeholder='Enter status'
-                                        name='status'
-                                        className='form-control'
-                                        value={payment.status}
-                                        onChange={(i) => setPayment({...payment,status:i.target.value})}
-                                    >
-                                    </input>
-                                </div>
-                                <button className='btn btn-primary' onClick={(i) => saveSlot(i)}>Submit</button>
-                                <Link to="/bookedparkingslot" className='btn btn-outline-danger' style={{ marginLeft: "10px", textDecoration: "none" }}> Parking Slots </Link>
-                               
-                            </form>
-                        </div>
+                    <div className='card-body' style={{ background: "black", padding: "23px", color: "white", borderRadius: "40px" }}>
+
+                        <form>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Parking Floor</label>
+                                <input
+                                    type="number"
+                                    placeholder='Enter Parking Floor'
+                                    name='parkingFloorId'
+                                    className='form-control'
+                                    value={parkingFloor.parkingFloorId}
+                                    onChange={(i) => setParkingFloor({ ...parkingFloor, parkingFloorId: i.target.value })}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Vehicle</label>
+                                <input
+                                    type="number"
+                                    placeholder='Enter Vehicle Number'
+                                    name='vehicleId'
+                                    className='form-control'
+                                    value={vehicle.vehicleId}
+                                    onChange={(i) => setVehicle({ ...vehicle, vehicleId: i.target.value })}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Parking Date</label>
+                                <input
+                                    type="date"
+                                    placeholder='Enter Parking Date'
+                                    name='parkingDate'
+                                    className='form-control'
+                                    value={parkingDate}
+                                    onChange={(i) => setParkingDate(i.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Parking Duration</label>
+                                <input
+                                    type="number"
+                                    placeholder='Enter Parking Duration'
+                                    name='parkingDuration'
+                                    className='form-control'
+                                    value={parkingDuration}
+                                    onChange={(i) => setParkingDuration(i.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Parking Time</label>
+                                <input
+                                    type="text"
+                                    placeholder='Enter Parking Time'
+                                    name='parkingTime'
+                                    className='form-control'
+                                    value={parkingTime}
+                                    onChange={(i) => setParkingTime(i.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Parking Slot No</label>
+                                <input
+                                    type="number"
+                                    placeholder='Enter Parking Slot No'
+                                    name='slot_no'
+                                    className='form-control'
+                                    value={slot_no}
+                                    onChange={(i) => setSlotNo(i.target.value)}
+                                >
+                                </input>
+                            </div>
+                            <h3>ENTER PAYMENT DETAILS</h3>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Payment Type</label>
+                                <input
+                                    type="text"
+                                    placeholder='Enter Payment Type'
+                                    name='type'
+                                    className='form-control'
+                                    value={payment.type}
+                                    onChange={(i) => setPayment({ ...payment, type: i.target.value })}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Amount Paid</label>
+                                <input
+                                    type="text"
+                                    placeholder='Enter Amount Paid'
+                                    name='amountPaid'
+                                    className='form-control'
+                                    value={payment.amountPaid}
+                                    onChange={(i) => setPayment({ ...payment, amountPaid: i.target.value })}
+                                >
+                                </input>
+                            </div>
+                            <div className='form-group mb-2'>
+                                <label className='form-label'>Status</label>
+                                <input
+                                    type="text"
+                                    placeholder='Enter status'
+                                    name='status'
+                                    className='form-control'
+                                    value={payment.status}
+                                    onChange={(i) => setPayment({ ...payment, status: i.target.value })}
+                                >
+                                </input>
+                            </div>
+                            <button className='btn btn-primary' onClick={(i) => saveSlot(i)}>Submit</button>
+
+                        </form>
                     </div>
                 </div>
             </div>
-            
-            </div>
-  )
+        </div>
+
+    </div>
+    )
 }
 
 export default BookParkingSlotComponent
