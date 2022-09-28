@@ -12,5 +12,8 @@ class ParkingSlotService{
     deleteParkingSlot(parkingSlotId){
         return axios.delete(PARKING_SLOT_BASE_REST_API_URL+'/deleteSlot/'+parkingSlotId);
     }
+    checkavailability(date){
+        return axios.get(PARKING_SLOT_BASE_REST_API_URL+'/checkAvailability/'+date);
+    }
 }
 export default new ParkingSlotService();
