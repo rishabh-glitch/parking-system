@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import ParkingSlotService from '../services/ParkingSlotService';
 import HeaderComponent from './HeaderComponent';
+import UserHeader from './UserHeader';
 
 const CheckAvailabilityComponent = () => {
     const[date,setDate] = useState('');
@@ -22,7 +23,7 @@ const CheckAvailabilityComponent = () => {
     }
   return (
     <div style={{background:"aliceblue",height:"650px"}}>
-        <HeaderComponent/>
+        <UserHeader/>
         <div className='form-group mb-2'style={{position:"relative",left:"540px",fontFamily:"emoji"}}>
                                 <label className='form-label' >ENTER DATE TO CHECK AVAILABILITY OF SLOT</label>
                                 <input style={{width:"200px",marginBottom:"10px"}}
