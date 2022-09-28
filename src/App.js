@@ -6,6 +6,12 @@ import BookParkingSlotComponent from './components/BookParkingSlotComponent';
 import BookedParkingSlot from './components/BookedParkingSlot';
 import CheckAvailabilityComponent from './components/CheckAvailabilityComponent';
 import AddVehicleComponent from './components/AddVehicleComponent';
+// import Home from './components/Home';
+import Login from './components/Login';
+import UserHeader from './components/UserHeader';
+import SignUp from './components/SignUp';
+// import Signup from './components/Signup'
+// import About from './components/About'
 
 function App() {
   return (
@@ -13,7 +19,13 @@ function App() {
       <BrowserRouter>
       <div>
         <Switch>
-        <Route exact path = "/" component = {HeaderComponent}></Route> 
+        <Route exact path = "/" component = {SignUp}></Route> 
+          {/* <Route path ="/" component={Home}></Route> */}
+          {/* <Route path ="/login" component={Login}></Route> */}
+          {/* {/* <Route path ="/signup" component={Signup}></Route> */}
+          <Route path ="/userhome" component={UserHeader}></Route>
+          <Route path ="/login" component={Login}></Route>
+          <Route path ="/home" component={HeaderComponent}></Route> 
           <Route path = "/bookparkingslot" component = {BookParkingSlotComponent}></Route>
           <Route path = "/bookedparkingslot" component = {BookedParkingSlot}></Route>
           <Route path = "/checkavailability" component = {CheckAvailabilityComponent}></Route>
