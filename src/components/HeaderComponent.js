@@ -19,6 +19,7 @@ const HeaderComponent = () => {
             <Link to="/bookparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>BookSlots</Link>
             <Nav.Link href="#link" style = {{color:"aliceblue"}}>Create Premise</Nav.Link>
             <Nav.Link href="#link" style = {{color:"aliceblue"}}>Create Floor</Nav.Link>
+            <Nav.Link href="/createvehicle" style = {{color:"aliceblue"}}>Create Vehicle</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
