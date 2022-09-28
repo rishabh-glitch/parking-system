@@ -4,6 +4,8 @@ import { BrowserRouter ,Route, Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
 import BookParkingSlotComponent from './components/BookParkingSlotComponent';
 import BookedParkingSlot from './components/BookedParkingSlot';
+import CheckAvailabilityComponent from './components/CheckAvailabilityComponent';
+import AddVehicleComponent from './components/AddVehicleComponent';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route exact path = "/" component = {HeaderComponent}></Route> 
           <Route path = "/bookparkingslot" component = {BookParkingSlotComponent}></Route>
           <Route path = "/bookedparkingslot" component = {BookedParkingSlot}></Route>
+          <Route path = "/checkavailability" component = {CheckAvailabilityComponent}></Route>
+          <Route path = "/createvehicle" component = {AddVehicleComponent}></Route>
         </Switch>
       </div>
       </BrowserRouter>
