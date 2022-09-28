@@ -3,6 +3,8 @@ import { useHistory, Link, useParams } from 'react-router-dom';
 import HeaderComponent from './HeaderComponent'
 import ParkingSlotService from '../services/ParkingSlotService'
 import { ToastContainer, toast } from 'react-toastify';
+import UserServices from '../services/UserServices';
+import UserHeader from './UserHeader';
 
 const BookParkingSlotComponent = () => {
 
@@ -24,7 +26,7 @@ const BookParkingSlotComponent = () => {
         const parkingslot = { parkingFloor, vehicle, parkingDate, parkingTime, slot_no, parkingDuration, payment }
         ParkingSlotService.saveParkingSlot(parkingslot).then((response) => {
             console.log(response.data)
-            his.push('/bookedparkingslot');
+            // his.push('/bookedparkingslot');
             saveButton();
         }).catch(error => {
             console.log(error.response.data)
@@ -34,17 +36,17 @@ const BookParkingSlotComponent = () => {
     const saveButton = () => {
         toast.success("The details has been saved");
     };
-
+    
     return (
         <div>
             <ToastContainer />
-        <HeaderComponent />
+        <UserHeader />
         <div style={{
             background: "url(https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)center",
             boxShadow: "0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)", opacity: "0.9"
         }}>
        
-            <Link to="/bookedparkingslot" className='btn btn-outline-info' style={{ marginLeft: "40px", textDecoration: "none", position: 'absolute', marginTop: '100px' }}> View Parking Slots </Link>
+            {/* <Link to="/bookedparkingslot" className='btn btn-outline-info' style={{ marginLeft: "40px", textDecoration: "none", position: 'absolute', marginTop: '100px' }}> View Parking Slots </Link> */}
             <Link to="/checkavailability" className='btn btn-outline-info' style={{ marginLeft: "40px", textDecoration: "none", position: 'absolute', marginTop: '150px' }}> Check Availability </Link>
 
             <div className='container' style={{ width: "500px", color: "aliceblue", height: "890px" }}>
