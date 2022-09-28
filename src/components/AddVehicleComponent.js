@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import { useHistory, Link, useParams } from 'react-router-dom';
 import HeaderComponent from './HeaderComponent'
 import VehicleService from '../services/VehicleService';
+import UserHeader from './UserHeader'
 
 const AddVehicleComponent=() =>{
     const [vehicleNumber,setVehicleNumber] = useState('')
@@ -25,7 +26,7 @@ const AddVehicleComponent=() =>{
 
 
     return (<div>
-        <HeaderComponent />
+        <UserHeader/>
         <div style={{
             background: "url(https://images.unsplash.com/photo-1573348722427-f1d6819fdf98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80)center",
             boxShadow: "0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19)", opacity: "0.9"}}>
