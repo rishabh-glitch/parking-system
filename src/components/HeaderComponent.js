@@ -15,13 +15,13 @@ const HeaderComponent = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >
-            <Link to="#home"className='nav-link active' style = {{color:"aliceblue"}}>Home</Link>
+            <Link to="/adminhome"className='nav-link active' style = {{color:"aliceblue"}}>Home</Link>
             {/* <Link to="/bookparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>BookSlots</Link> */}
             <Link to = "/createpremisecomponent" className='nav-link active' style = {{color:"aliceblue"}}>Create Premise</Link>
-            <Link to = "#link" className='nav-link active' style = {{color:"aliceblue"}}>Create Floor</Link>
-            <Link to="/bookedparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>Parked Vehicle</Link>
+            <Link to = "/createfloor" className='nav-link active' style = {{color:"aliceblue"}}>Create Floor</Link>
+            <Link to="/bookedparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>Booked Slots</Link>
             <Link to="/parkedvehicle" className='nav-link active' style = {{color:"aliceblue"}}>Parked Vehicle</Link>
-            <Link className='btn btn-danger'to="/">Logout</Link>
+            <Link className='btn btn-danger'to="/" style={{marginLeft:"540px"}}>Logout</Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
