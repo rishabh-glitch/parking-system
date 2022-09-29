@@ -14,10 +14,10 @@ const UserHeader = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto" >
-            <Nav.Link href="#home" style = {{color:"aliceblue"}}>Home</Nav.Link>
+            <Link to="/userhome" className='nav-link active' style = {{color:"aliceblue"}}>Home</Link>
             <Link to="/bookparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>BookSlots</Link>
             <Nav.Link href="/createvehicle" style = {{color:"aliceblue"}}>Register Vehicle</Nav.Link>
-            <Link className='btn btn-danger'to="/">Logout</Link>
+            <Link className='btn btn-danger'to="/"  style={{marginLeft:"540px"}}>Logout</Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
