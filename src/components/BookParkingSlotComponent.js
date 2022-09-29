@@ -12,6 +12,7 @@ const BookParkingSlotComponent = () => {
     const [vehicle, setVehicle] = useState({ vehicleId: '' })
     const [parkingDate, setParkingDate] = useState('')
     const [parkingDuration, setParkingDuration] = useState('')
+
     const [payment, setPayment] = useState({
         type: "",
         amountPaid: '',
@@ -19,6 +20,7 @@ const BookParkingSlotComponent = () => {
     });
     const [slot_no, setSlotNo] = useState('')
     const [parkingTime, setParkingTime] = useState('')
+    
     const his = useHistory();
 
     const saveSlot = (i) => {
@@ -29,6 +31,8 @@ const BookParkingSlotComponent = () => {
             // his.push('/bookedparkingslot');
             saveButton();
         }).catch(error => {
+             const a = error.response.data
+            document.getElementById('text').innerHTML = a
             console.log(error.response.data)
         })
     }
@@ -64,6 +68,7 @@ const BookParkingSlotComponent = () => {
                                 <label className='form-label'>Parking Floor</label>
                                 <input
                                     type="number"
+                                    required = "required"
                                     placeholder='Enter Parking Floor'
                                     name='parkingFloorId'
                                     className='form-control'
@@ -76,6 +81,7 @@ const BookParkingSlotComponent = () => {
                                 <label className='form-label'>Vehicle</label>
                                 <input
                                     type="number"
+                                    required = "required"
                                     placeholder='Enter Vehicle Number'
                                     name='vehicleId'
                                     className='form-control'
@@ -87,7 +93,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Parking Date</label>
                                 <input
-                                    type="date"
+                                    type="date"required = "required"
                                     placeholder='Enter Parking Date'
                                     name='parkingDate'
                                     className='form-control'
@@ -99,7 +105,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Parking Duration</label>
                                 <input
-                                    type="number"
+                                    type="number"required = "required"
                                     placeholder='Enter Parking Duration'
                                     name='parkingDuration'
                                     className='form-control'
@@ -110,10 +116,11 @@ const BookParkingSlotComponent = () => {
                             </div>
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Parking Time</label>
-                                <input
-                                    type="text"
+                                <input 
+                                    type="text"required = "required"
                                     placeholder='Enter Parking Time'
                                     name='parkingTime'
+                                    pattern = "((1[0-2]|0?[1-9]):([0-5][0-9]) ?([AaPp][Mm]))"
                                     className='form-control'
                                     value={parkingTime}
                                     onChange={(i) => setParkingTime(i.target.value)}
@@ -123,7 +130,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Parking Slot No</label>
                                 <input
-                                    type="number"
+                                    type="number"required = "required"
                                     placeholder='Enter Parking Slot No'
                                     name='slot_no'
                                     className='form-control'
@@ -136,7 +143,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Payment Type</label>
                                 <input
-                                    type="text"
+                                    type="text"required = "required"
                                     placeholder='Enter Payment Type'
                                     name='type'
                                     className='form-control'
@@ -148,7 +155,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Amount Paid</label>
                                 <input
-                                    type="text"
+                                    type="text"required = "required"
                                     placeholder='Enter Amount Paid'
                                     name='amountPaid'
                                     className='form-control'
@@ -160,7 +167,7 @@ const BookParkingSlotComponent = () => {
                             <div className='form-group mb-2'>
                                 <label className='form-label'>Status</label>
                                 <input
-                                    type="text"
+                                    type="text"required = "required"
                                     placeholder='Enter status'
                                     name='status'
                                     className='form-control'
@@ -169,6 +176,7 @@ const BookParkingSlotComponent = () => {
                                 >
                                 </input>
                             </div>
+                            <p id="text"style={{background: "black",display: "inline",padding: "5px",color: "white",borderRadius: "20px"}}></p>
                             <button className='btn btn-primary' onClick={(i) => saveSlot(i)}>Submit</button>
 
                         </form>
