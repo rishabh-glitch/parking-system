@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import { useHistory} from 'react-router-dom';
 import UserServices from '../services/UserServices';
 // import InsuranceService from '../services/InsuranceService';
+import { ToastContainer,toast } from 'react-toastify';
+
 const Login = () => {
 
     
@@ -17,8 +19,10 @@ const Login = () => {
             UserServices.loginUser(user).then((response) =>{
                 if(response.data==="logged in")
                 {
+                    loginButton();
                     history.push('/userhome');
-                    alert("logged in successfully");
+
+                    // alert("logged in successfully");
                 }
                 else if(response.data=="logged in as a admin")
                 {
@@ -35,7 +39,9 @@ const Login = () => {
         
         
     }
-
+    const loginButton=()=>{
+        toast.success("Login Successful");
+    };
  
 
     const title = () => {
@@ -49,6 +55,8 @@ const Login = () => {
     // }
 
     return (
+        <div>
+        <ToastContainer/>
         <div style={{ backgroundColor: "#d4d3eb", height: "800px"}}>
             <h1 style={{fontFamily:"revert",textAlign:"center",color:"darkblue",textShadow:"4px 4px 2px azure",paddingTop:"50px"}}>Parking Slot Management System</h1>
            <br /><br />
@@ -100,6 +108,7 @@ const Login = () => {
 
            </div>
 
+        </div>
         </div>
     )
 }
