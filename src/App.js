@@ -13,8 +13,10 @@ import UserHeader from './components/UserHeader';
 import SignUp from './components/SignUp';
 import CreatePremiseComponent from './components/CreatePremiseComponent'
 import ParkedVehicle from './components/ParkedVehicle'
-// import Signup from './components/Signup'
-// import About from './components/About'
+import CreateFloor2 from './components/CreateFloor2';
+import UpdateFloorDetails from './components/UpdatedFloorDetails'
+import UserHome from './components/UserHome'
+import AdminHome from './components/AdminHome'
 
 function App() {
   return (
@@ -23,19 +25,19 @@ function App() {
       <div>
         <Switch>
         <Route exact path = "/" component = {SignUp}></Route> 
-          {/* <Route path ="/" component={Home}></Route> */}
-          {/* <Route path ="/login" component={Login}></Route> */}
-          {/* {/* <Route path ="/signup" component={Signup}></Route> */}
-          <Route path ="/userhome" component={UserHeader}></Route>
-          <Route path ="/login" component={Login}></Route>
-          <Route path ="/createpremisecomponent" component={CreatePremiseComponent}></Route>
-          <Route path = "/parkedvehicle" component = {ParkedVehicle}></Route>
-          <Route path ="/parkingpremise" component={SavedPremise}></Route>
-          <Route path ="/home" component={HeaderComponent}></Route> 
-          <Route path = "/bookparkingslot" component = {BookParkingSlotComponent}></Route>
-          <Route path = "/bookedparkingslot" component = {BookedParkingSlot}></Route>
-          <Route path = "/checkavailability" component = {CheckAvailabilityComponent}></Route>
-          <Route path = "/createvehicle" component = {AddVehicleComponent}></Route>
+        <Route path ="/userhome" component={UserHome}></Route>
+        <Route path ="/adminhome" component={AdminHome}></Route>
+        <Route path ="/login" component={Login}></Route>
+        <Route path ="/createpremisecomponent" component={CreatePremiseComponent}></Route>
+        <Route path = "/parkedvehicle" component = {ParkedVehicle}></Route>
+        <Route path ="/parkingpremise" component={SavedPremise}></Route>
+        <Route path ="/createfloor" component={CreateFloor2}></Route>
+        <Route path ="/parkingfloor" component={UpdateFloorDetails}></Route>
+        <Route path ="/home" component={HeaderComponent}></Route> 
+        <Route path = "/bookparkingslot" component = {BookParkingSlotComponent}></Route>
+        <Route path = "/bookedparkingslot" component = {BookedParkingSlot}></Route>
+        <Route path = "/checkavailability" component = {CheckAvailabilityComponent}></Route>
+        <Route path = "/createvehicle" component = {AddVehicleComponent}></Route>
         </Switch>
       </div>
       </BrowserRouter>
