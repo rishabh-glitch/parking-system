@@ -39,7 +39,7 @@ const BookedParkingSlot = () => {
         <HeaderComponent/>
         <br></br>
         <br></br>
-        <Link to="/bookparkingslot" className='btn btn-primary' style={{float:"right",marginRight:"50px",textDecoration:"none"}}> + BOOK SLOT </Link>
+        {/* <Link to="/bookparkingslot" className='btn btn-primary' style={{float:"right",marginRight:"50px",textDecoration:"none"}}> + BOOK SLOT </Link> */}
         <h2 className='text-center' style={{fontFamily:"auto",textDecoration:"auto"}}>Booked Slots</h2>
         <table className = "table container table-bordered table-striped table-hover" style={{backgroundColor:"aliceblue",marginTop:"40px",borderRadius:"25px"}}>
             <thead style={{padding:"20px",textAlign:"center"}}>
