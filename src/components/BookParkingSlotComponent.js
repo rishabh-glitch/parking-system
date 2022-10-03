@@ -8,6 +8,7 @@ import UserHeader from './UserHeader';
 
 const BookParkingSlotComponent = () => {
 
+    
     const [parkingFloor, setParkingFloor] = useState({ parkingFloorId: '' });
     const [vehicle, setVehicle] = useState({ vehicleId: '' })
     const [parkingDate, setParkingDate] = useState('')
@@ -82,7 +83,7 @@ const BookParkingSlotComponent = () => {
                                 <input
                                     type="number"
                                     required = "required"
-                                    placeholder='Enter Vehicle Number'
+                                    placeholder='Enter Vehicle Id'
                                     name='vehicleId'
                                     className='form-control'
                                     value={vehicle.vehicleId}
