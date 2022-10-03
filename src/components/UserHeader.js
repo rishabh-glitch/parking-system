@@ -17,7 +17,7 @@ const UserHeader = () => {
             <Link to="/userhome" className='nav-link active' style = {{color:"aliceblue"}}>Home</Link>
             <Link to="/bookparkingslot" className='nav-link active' style = {{color:"aliceblue"}}>BookSlots</Link>
             <Nav.Link href="/createvehicle" style = {{color:"aliceblue"}}>Register Vehicle</Nav.Link>
-            <Link className='btn btn-danger'to="/"  style={{marginLeft:"540px"}}>Logout</Link>
+            <Link className='btn btn-danger'to="/"  style={{marginLeft:"750px"}}>Logout</Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
