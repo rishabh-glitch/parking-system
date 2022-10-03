@@ -44,7 +44,7 @@ const ParkedVehicle = () =>{
                     <th style={{padding:"20px"}}> Vehicle Type </th>
                     <th style={{padding:"20px"}}> Vehicle Company </th>
                     <th style={{padding:"20px"}}> Vehicle Model</th>
-                    <th style={{padding:"20px"}}> OWNER ID </th>
+                    <th style={{padding:"20px"}}> Owner name </th>
                     
                 </thead>
                 <tbody style={{textAlign:"center",background:""}}>
@@ -57,7 +57,7 @@ const ParkedVehicle = () =>{
                                 <td>{addvehicle.vehicleType}</td>
                                 <td>{addvehicle.vehicleCompany}</td>
                                 <td>{addvehicle.vehicleModel}</td>
-                                <td>{addvehicle.owner.userId}</td>
+                                <td>{addvehicle.owner.firstName}</td>
                                 
                                 <td><button className='btn btn-danger' onClick={()=>deleteVehicle(addvehicle.vehicleId)}>Delete</button></td>
                                 {/* <td><Link className='btn btn-info' to={`/edit-insurance/${insurance.id}`}>Update</Link></td> */}
